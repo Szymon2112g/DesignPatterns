@@ -3,32 +3,21 @@ package Creational.Builder2;
 // supervisor
 public class Dealler {
 
-    private String typeOfVehicle;
-    private String typeOfDrivingLicence;
-    private String weight;
-
+    private SomeClass someClass;
     private Vehicle.VehicleBuilder vehicleBuilder;
+
+    public void setSomeClass(SomeClass someClass) {
+        this.someClass = someClass;
+    }
 
     public void setVehicleBuilder(Vehicle.VehicleBuilder vehicleBuilder) {
         this.vehicleBuilder = vehicleBuilder;
     }
 
-    public void setTypeOfVehicle(String typeOfVehicle) {
-        this.typeOfVehicle = typeOfVehicle;
-    }
-
-    public void setTypeOfDrivingLicence(String typeOfDrivingLicence) {
-        this.typeOfDrivingLicence = typeOfDrivingLicence;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
     public Vehicle construct() {
-        return vehicleBuilder.withTypeOfDrivingLicence(typeOfDrivingLicence)
-                    .withTypeOfVehicle(typeOfVehicle)
-                    .withWeight(weight)
+        return vehicleBuilder.withTypeOfDrivingLicence(someClass.getTypeOfLicence())
+                    .withTypeOfVehicle(someClass.getType())
+                    .withWeight(someClass.getWeight())
                     .build();
     }
 
